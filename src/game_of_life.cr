@@ -17,14 +17,12 @@ module GameOfLife
     end
 
     def get(x, y) : Int32
-      if !@array[x]?
-        return 0
-      end
+      max_x_index = @array.size - 1
+      max_y_index = @array[0].size - 1 
 
-      if !@array[x][y]?
-        return 0
-      end
-
+      x = x > max_x_index ? 0 : x
+      y = y > max_y_index ? 0 : y
+      # puts "#{max_x_index},#{x},#{max_y_index},#{y}"
       return @array[x][y]
     end
 
@@ -96,9 +94,10 @@ module GameOfLife
     end
 
     def show
+      `clear`
       @array.each do |a|
         a.each do |cell|
-          print "#{cell == 1 ? "■ " : "□ "}"
+          print "#{cell == 1 ? "⬛" : "⬜"}"
         end
         print "\n"
       end
