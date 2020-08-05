@@ -6,7 +6,7 @@ authors:
 
 targets:
   game_of_life:
-    main: src/game_of_life.cr
+    main: src/main.cr
 
 crystal: 0.35.1
 

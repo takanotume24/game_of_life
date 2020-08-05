@@ -13,6 +13,7 @@ module GameOfLife
 
   class Map
     def initialize(array : Array(Array(Int32)))
+      @seq = 0
       @array = array
     end
 
@@ -94,7 +95,10 @@ module GameOfLife
     end
 
     def show
-      `clear`
+      system "clear"
+      @seq += 1
+      puts "seq: #{@seq}"
+
       @array.each do |a|
         a.each do |cell|
           print "#{cell == 1 ? "⬛" : "⬜"}"
